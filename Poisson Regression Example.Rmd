@@ -1,0 +1,43 @@
+---
+title: "Poisson Regression"
+author: "Quinn E Knudsen"
+date: "September 23, 2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Prussian Horse Toy Data
+
+Please let me know what you think of this analysis and interpretation.
+
+```{r}
+library(data.table)
+library(readr)
+# Read Dummy Data 
+data <- read_csv("C:/Users/KnudseQ/Desktop/Prussion Horse-Kick Data.csv")
+#Melt to Long Format
+long <- melt(setDT(data), id.vars = c("Year"), variable.name = "Cat")
+
+```
+
+## Confirm Poisson
+
+Basic histogram for distribution. 
+
+```{r pressure, echo=FALSE}
+# Confirm Poisson
+hist(long$value)
+```
+# Poisson Regression
+
+Model and results. CatC8 nears significance, yet no differences can be claimed.
+
+```{r}
+model1 <-glm(value ~ Cat, family = "poisson",
+             data = long)
+summary(model1)
+```
+
