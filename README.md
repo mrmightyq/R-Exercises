@@ -6,4 +6,4 @@ https://peopleanalytics-regression-book.org/gitbook/
 
 https://ona-book.org/index.html
 
-https://rforhr.com/criterionrelatedvalidity.html#conceptualoverview_criterionrelatedvalidity
+https://rforhr.com/
